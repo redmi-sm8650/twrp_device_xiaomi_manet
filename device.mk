@@ -28,6 +28,3 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
-
-TWRP_REQUIRED_MODULES += \
-	hyperos_prebuilt

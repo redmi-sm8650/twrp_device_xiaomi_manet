@@ -9,6 +9,9 @@ DEVICE_PATH := device/xiaomi/manet
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+
 
 # A/B
 AB_OTA_UPDATER := true
@@ -72,7 +75,6 @@ BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 TARGET_BOARD_PLATFORM := xiaomi_sm8650
 
 # Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
@@ -95,3 +97,5 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone13/temp
+TW_FRAMERATE := 120

@@ -48,8 +48,8 @@ on init
 
 on boot
     setprop sys.usb.config adb
-
-on property:twrp.modules.loaded=true
+    insmod /vendor/lib/modules/1.1/xiaomi_touch.ko
+    insmod /vendor/lib/modules/1.1/goodix_core.ko
     # Mount firmware
     mkdir /firmware
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
@@ -57,6 +57,7 @@ on property:twrp.modules.loaded=true
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
+    write /dev/kmsg "modules loaded"
     start vendor.qseecomd
     start touch_report
     start health-hal-2-1
